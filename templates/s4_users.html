@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  function listboxresult()
+  {
+    var spanresult = document.getElementById("result");
+    spanresult.value="";
+    var x = document.getElementById("sel");
+    for(var i=0; i<x.options.length; i++)
+    {
+      if (x.options[i].selected === true) 
+      {
+        spanresult.value += x.options[i].value + " ";
+        document.getElementById("result").innerHTML= spanresult.value;
+        document.getElementById("result").style.color="blue";
+      }
+    }
+    if (document.getElementById("result").value == "") 
+    {
+      document.getElementById("result").innerHTML= "Please Select list";
+      document.getElementById("result").style.color="blue";
+    }
+  }
+</script>
+<style>
+#sidebar-wrapper {
+	background:#ccc;
+	height:100vh
+}
+ul#panels {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-left:300px;
+	background:red;
+}
+#sidebar-wrapper .sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 225px;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#sidebar-wrapper .sidebar-nav li {
+	text-indent: 0;
+	line-height: 45px;
+}
+#sidebar-wrapper .sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	outline:0;
+	color:#fff;
+}
+#sidebar-wrapper .sidebar-nav li a.active {
+	background-color:#85ce36;
+	color:#fff;
+}
+#sidebar-wrapper .sidebar-nav li a:focus, #sidebar-wrapper .sidebar-nav li a:hover {
+	background-color:#2d363f;
+}
+
+
+.menuContent {
+  display: none;
+}
+#menu1Content:target {
+  display: block;
+}
+#menu2Content:target {
+  display: block;
+}
+#menu3Content:target {
+  display: block;
+}
+/** Menu styles **/
+
+.treeview ul {
+  /*CSS for Simple Tree Menu*/
+  margin: 0;
+  padding: 0;
+}
+.treeview li {
+  /*Style for LI elements in general (excludes an LI that contains sub lists)*/
+  background: white no-repeat left center;
+  list-style-type: none;
+  padding-left: 22px;
+  margin-bottom: 3px;
+}
+div.container {
+  width: 100%;
+  border: 3px solid gray;
+}
+
+[data-tab-info] {
+            display: none;
+        }
+          
+        .active[data-tab-info] {
+            display: block;
+        }
+          
+        .tab-content {
+            font-size: 30px;
+            font-family: sans-serif;
+            font-weight: bold;
+            color: rgb(82, 75, 75);
+        }
+          
+        .tabs {
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            display: flex;
+            margin: 0;
+        }
+          
+        .tabs span {
+            background: rgb(28, 145, 38);
+            padding: 10px;
+            border: 1px solid rgb(255, 255, 255);
+        }
+          
+        .tabs span:hover {
+            background: rgb(29, 185, 112);
+            cursor: pointer;
+            color: black;
+        }
+        .tab_border_set {
+        display: block;
+        margin: 0 auto;
+        margin-top: 1rem;
+        }
+
+        .border_set {
+        border-top-width: 4px;
+        border-right-width: 4px;
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+        border-top-style: dotted;
+        border-right-style: dotted;
+        border-bottom-style: dotted;
+        border-left-style: dotted;
+       
+        border-top-color: #2ecc71;
+        border-right-color: #2ecc71;
+        border-bottom-color: #2ecc71;
+        border-left-color: #2ecc71;
+        }
+        .example{
+            /*以下パソコンで効く*/
+            color: red;
+            font-weight: bold;
+            background: yellow;
+            font-size: 150%;
+            font-family: "ＭＳ 明朝";
+
+            /*以下効かない*/
+            display: inline;
+            padding: 10px;
+            border: 1px solid #999;
+            margin: 10px;
+            width: 100px;
+            height: 20px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            text-decoration: underline;
+            line-height: 2;
+        }
+</style>
+</head>
+<body>
+<div id="sidebar-wrapper">
+  <aside id="sidebar">
+    <ul id="sidemenu" class="sidebar-nav">
+      <li> <a href="#" class="active"> <span class="sidebar-icon"><i class="fa fa-dashboard"></i></span> <span class="sidebar-title">Dashboard</span> </a> </li>
+      <li> <a class="accordion-toggle collapsed toggle-switch toggle-icon" data-toggle="collapse" href="#submenu-2"> <span class="sidebar-icon"><i class="fa fa-users"></i></span> <span class="sidebar-title">Papra List</span> <i class="fa icon-toggle fa-angle-right" aria-hidden="true"></i> </a>
+        <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+          <li><a data-toggle="collapse" href="#tab1" class="abc"><i class="fa fa-caret-right"></i>Menu</a></li>
+          <li><a data-toggle="collapse" href="#tab2" class="abc"><i class="fa fa-caret-right"></i>Table</a></li>
+        </ul>
+      </li>
+     
+    </ul>
+  </aside>
+  <ul id="panels">
+    <li id="tab1" >  <div align=center">
+        <div class="border_set">
+          <div class="tab_border_set">
+          <div class="tabs">
+              <span data-tab-value="#tab_1">Data Setting</span>
+              <span data-tab-value="#tab_2">View Setting</span>
+          
+          </div>
+      
+          <div class="tab-content">
+              <div class="tabs__tab active" id="tab_1" data-tab-info>
+                  <form method="post">
+                      <input type="text" name="search" required/>
+                      <input type="submit" value="Search"/>
+                    </form>
+                     
+                    <!--  
+                    {% if usr | length != 0 %}
+                    <table id="demo">
+                      {% for u in usr %}
+                      <tr>
+                         <td><a href="#" class="row-link">{{ u[1] }}</a></td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+                    {% else %}
+                    <div id="demo">No search results.</div>
+                    {% endif %}
+                    -->
+                    {% if usr | length != 0 %}
+                    <select id="sel"  size="5" multiple="multiple">
+                      {% for u in usr %}
+                      <option value=""> {{ u[1] }} </option>
+                      {% endfor %}
+                    </select>
+                    {% endif %}
+              </div>
+              <br>
+              {% for l in select %}
+              <span id="result">{{ u }}</span>
+              {% endfor %}
+              <hr/>
+              <input type="submit" id="sel" value="sel">
+              <div>
+              
+
+              </div>
+              <div class="tabs__tab" id="tab_2" data-tab-info>
+                  <p>Hello Everyone.</p>
+      
+              </div>
+              <div class="tabs__tab" id="tab_3" data-tab-info>
+                  <p>Learn cool stuff.</p>
+      
+              </div>
+          </div>
+      </div>
+      </div>
+      <script type="text/javascript">
+          const tabs = document.querySelectorAll('[data-tab-value]')
+          const tabInfos = document.querySelectorAll('[data-tab-info]')
+    
+          tabs.forEach(tab => {
+              tab.addEventListener('click', () => {
+                  const target = document
+                      .querySelector(tab.dataset.tabValue);
+    
+                  tabInfos.forEach(tabInfo => {
+                      tabInfo.classList.remove('active')
+                  })
+                  target.classList.add('active');
+              })
+          })
+      </script>
+      </div></li>
+    <li id="tab2" class="collapse">Roles</li>
+  </ul>
+</div>
+<script>
+$(document).ready(function(){ 
+$('#panels li').on('show.bs.collapse', function () {
+    $('#panels li.in').collapse('hide');
+});
+});
+</script>
+</body>
+</html>
